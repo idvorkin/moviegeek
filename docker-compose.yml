@@ -5,6 +5,8 @@ services:
     image: postgres
     expose:
       -  "5432"
+    ports:
+      - "5432:5432"
     networks:
       - djangonetwork
     environment:
@@ -29,7 +31,7 @@ services:
   build-recs:
     build: .
     command: python -m builder.bpr_calculator
-    
+
   evaluate:
     restart: always
     build: .
